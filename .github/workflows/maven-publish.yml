@@ -63,7 +63,7 @@ jobs:
           path: target/
     - name: Docker build
       run: |
-        docker build . -t shayki-maven:${{ steps.bump.outputs.jar_version }}
+        docker build . -t shayki-maven:{{needs.build.outputs.jar_version}}
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
