@@ -59,4 +59,4 @@ jobs:
           
     - name: Docker Buildx (push)
       run: |
-        docker buildx build push shayki-maven:${{ steps.bump.outputs.jar_version }}
+        docker buildx push shayki-maven:${{ steps.bump.outputs.jar_version }}
