@@ -13,7 +13,7 @@ Now, to print "Hello World!", type either...
 or...
 
     cd my-app 
-    mvn package
+    mvn package 
     java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 Running `mvn clean` will get us back to only the source Java and the `pom.xml`:
