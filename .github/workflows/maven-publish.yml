@@ -71,4 +71,4 @@ jobs:
 
     - name: Docker push
       run: |
-        docker push shayki-maven:${{ steps.bump.outputs.jar_version }}
+        docker push shayki-maven:${{ jobs.build.steps.bump.outputs.jar_version }}
