@@ -1,3 +1,4 @@
 FROM anapsix/alpine-java
-COPY *.jar /home/myjar.jar
+ARG workspace
+COPY ${workspace}/*.jar /home/myjar.jar
 CMD ["java","-jar","/home/myjar.jar"]
