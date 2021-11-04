@@ -47,7 +47,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jar-artifact
-        path: ${{ github.workspace }}/my-app/target
+        path: ${{ github.workspace }}/my-app/target/*.jar
         retention-days: 1
         
   deploy:
@@ -61,7 +61,7 @@ jobs:
           path: target/
     - name: Docker build
       run: |
-        docker build . --build-arg workspace=$GITHUB_WORKSPACE -t shayki-maven:${{ steps.bump.outputs.jar_version }}
+        docker build . -t shayki-maven:${{ steps.bump.outputs.jar_version }}
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
