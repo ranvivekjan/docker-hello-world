@@ -43,11 +43,11 @@ jobs:
     - name: Build a package
       run: mvn -B package --file my-app/pom.xml
       
-    - name: Temporarily save webpack artifact
+    - name: Temporarily save jar artifact
       uses: actions/upload-artifact@v2
       with:
         name: jar-artifact
-        path: $GITHUB_WORKSPACE/my-app/target
+        path: ${{ github.workspace }}/my-app/target
         retention-days: 1
         
   deploy:
