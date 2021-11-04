@@ -28,6 +28,7 @@ jobs:
       id: bump
       uses: nnichols/maven-version-bump-action@v3
       with:
+        pom-path: my-app/pom.xml
         github-token: ${{ secrets.github_token }}
 
     - name: Print Version
