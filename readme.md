@@ -12,7 +12,7 @@ Now, to print "Hello World!", type either...
 
 or...
 
-    cd my-app
+    cd my-app 
     mvn package
     java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
