@@ -23,6 +23,17 @@ jobs:
         distribution: 'adopt'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
+        
+    - name: PowerShell script
+      uses: Amadevus/pwsh-script@v2.0.1
+      with:
+        # PowerShell script to execute in Actions-hydrated context
+        script: |
+          [xml]$pomXml = Get-Content my-app\pom.xml
+          $oldVersion = [version]$pomXml.project.version   # '1.44.4'
+          $newVersion = "{0}.{1}.{2}" -f $oldVersion.Major, $oldVersion.Minor, ($oldVersion.Build + 1)
+
+          Write-Host $newVersion
     
     - uses: actions/github-script@v5
       with:
