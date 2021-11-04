@@ -41,20 +41,20 @@ jobs:
           $POMPATH=my-app
           echo $BUMP_MODE "version bump detected"
           bump $BUMP_MODE $OLD_VERSION
-          local mode="$BUMP_MODE"
-          local old="$OLD_VERSION"
-          local parts=( ${old//./ } )
+          $mode="$BUMP_MODE"
+          $old="$OLD_VERSION"
+          $parts=( ${old//./ } )
           case "$BUMP_MODE" in
             major)
-              local bv=$((parts[0] + 1))
+              $bv=$((parts[0] + 1))
               NEW_VERSION="${bv}.0.0"
               ;;
             minor)
-              local bv=$((parts[1] + 1))
+              $bv=$((parts[1] + 1))
               NEW_VERSION="${parts[0]}.${bv}.0"
               ;;
             patch)
-              local bv=$((parts[2] + 1))
+              $bv=$((parts[2] + 1))
               NEW_VERSION="${parts[0]}.${parts[1]}.${bv}"
               ;;
             esac
