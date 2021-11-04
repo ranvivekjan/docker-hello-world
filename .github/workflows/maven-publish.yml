@@ -46,7 +46,7 @@ jobs:
       
     - name: Docker build
       run: |
-        docker build . -t shayki-maven:${{ steps.bump.outputs.jar_version }}
+        docker build . -t --build-arg workspace=$GITHUB_WORKSPACE shayki-maven:${{ steps.bump.outputs.jar_version }}
         
     - name: Login to DockerHub
       uses: docker/login-action@v1
