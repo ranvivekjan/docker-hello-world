@@ -38,11 +38,10 @@ jobs:
     - uses: actions/github-script@v5
       with:
         script: |
-          POMPATH=my-app
-
-        debug: true
-        
-
+          const diff_url = context.payload.pull_request.diff_url
+          const result = await github.request(diff_url)
+          console.log(result)
+            
     - name: Build with Maven
       run: mvn -B package --file my-app/pom.xml
       
