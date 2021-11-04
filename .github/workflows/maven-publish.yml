@@ -36,7 +36,7 @@ jobs:
         mvn -q versions:set -DnewVersion="${NEW_VERSION}" --file $POMPATH/pom.xml
             
     - name: Compile
-      run: mvn -B --file my-app/pom.xml
+      run: mvn -B compile --file my-app/pom.xml
       
     - name: Build a package
       run: mvn -B package --file my-app/pom.xml
