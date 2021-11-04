@@ -27,47 +27,16 @@ jobs:
     - uses: actions/github-script@v5
       with:
         script: |
-          git config --global user.email $EMAIL
-          git config --global user.name $NAME
-
+          POMPATH=my-app
+          OLD_VERSION=$(cd $POMPATH && mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           BUMP_MODE="none"
-          if git log -1 | grep -q "#major"; then
-            BUMP_MODE="major"
-          elif git log -1 | grep -q "#minor"; then
-            BUMP_MODE="minor"
-          elif git log -1 | grep -q "#patch"; then
-            BUMP_MODE="patch"
-          fi
-          $POMPATH=my-app
-          echo $BUMP_MODE "version bump detected"
-          bump $BUMP_MODE $OLD_VERSION
-          $mode="$BUMP_MODE"
-          $old="$OLD_VERSION"
-          $parts=( ${old//./ } )
-          case "$BUMP_MODE" in
-            major)
-              $bv=$((parts[0] + 1))
-              NEW_VERSION="${bv}.0.0"
-              ;;
-            minor)
-              $bv=$((parts[1] + 1))
-              NEW_VERSION="${parts[0]}.${bv}.0"
-              ;;
-            patch)
-              $bv=$((parts[2] + 1))
-              NEW_VERSION="${parts[0]}.${parts[1]}.${bv}"
-              ;;
-            esac
+          old="$OLD_VERSION"
+          parts=( ${old//./ } )
+          bv=$((parts[2] + 1))
+          NEW_VERSION="${parts[0]}.${parts[1]}.${bv}"
           echo "pom.xml at" $POMPATH "will be bumped from" $OLD_VERSION "to" $NEW_VERSION
           mvn -q versions:set -DnewVersion="${NEW_VERSION}" --file $POMPATH/pom.xml
-          git add $POMPATH/pom.xml
-          REPO="https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git"
-          git commit -m "Bump pom.xml from $OLD_VERSION to $NEW_VERSION"
-          git tag $NEW_VERSION
-          git push $REPO --follow-tags
-          git push $REPO --tags
           
-
     - name: Build with Maven
       run: mvn -B package --file my-app/pom.xml
       
