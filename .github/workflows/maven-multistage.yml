@@ -31,7 +31,7 @@ jobs:
             
     - name: Docker build
       run: |
-        docker build . -t shayki/shayki-maven:${{ env.NEW_VERSION }} -f DockerfileMultiStage
+        docker build . -t shayki/shayki-maven:${{ env.jar_version }} -f DockerfileMultiStage
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
