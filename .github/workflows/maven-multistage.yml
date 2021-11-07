@@ -43,7 +43,7 @@ jobs:
         docker push shayki/shayki-maven:${{needs.build.outputs.jar_version}}
   run:
     runs-on: ubuntu-18.04
-    needs: [build, deploy]
+    needs: [build]
     
     steps:
     - name: Run container
