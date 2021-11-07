@@ -8,4 +8,4 @@ RUN mvn -B package -e -X --file my-app/pom.xml
 FROM openjdk:8-jre
 WORKDIR /root/
 COPY --from=BUILD_IMAGE /root/dev/myapp/my-app/target/my-app*.jar .
-CMD ["java","-jar","my-app*.jar"]
+CMD java -jar my-app*.jar
