@@ -3,7 +3,7 @@ ENV APP_HOME=/root/dev/myapp/
 RUN mkdir -p $APP_HOME/src/main/java
 WORKDIR $APP_HOME
 COPY . .
-RUN mvn -B package --file my-app/pom.xml
+RUN mvn -B package -e -X --file my-app/pom.xml
 
 FROM openjdk:8-jre
 WORKDIR /root/
