@@ -1,4 +1,4 @@
-FROM maven:3.8 as BUILD_IMAGE
+FROM maven:3 as BUILD_IMAGE
 ENV APP_HOME=/root/dev/myapp/
 RUN mkdir -p $APP_HOME/src/main/java
 WORKDIR $APP_HOME
