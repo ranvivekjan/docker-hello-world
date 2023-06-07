@@ -60,7 +60,7 @@ jobs:
     - name: Cache SonarQube packages
       uses: actions/cache@v1
       with:
-        path: ~/.sonar/cache
+        path: ./my-app/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
     - name: Cache Maven packages
