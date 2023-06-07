@@ -1,4 +1,4 @@
-# GitHub Action for building Maven project with Docker and push it Docker Hub
+# GitHub Action for building Maven proj with Docker and push it Docker Hub
 
 ### My Workflow
 The project is simple "Hello world" Maven project that I created 2 Dockerfiles for him.
