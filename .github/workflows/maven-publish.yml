@@ -112,11 +112,14 @@ jobs:
     - name: Docker push
       run: |
         docker push ranjanvivek/docker-hello:${{needs.build.outputs.jar_version}}
-  run:
+  run-on-k8:
     runs-on: self-hosted
     needs: [build, scan, deploy]
     
     steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 #Shallow clones shoud be disabledfor a better relevancy of analysis
     - name: Run container
       run: |
         pwd
