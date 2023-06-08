@@ -10,7 +10,7 @@ public class App
     {
         System.out.println( "Hello All!" );
 
-        System.out.println("A NullPointerException is a drag...");
+        System.out.println("Successfully Run on k8s...");
         Object myObject = null;
         /**
          * Checker prevents this from compiling...
@@ -24,6 +24,6 @@ public class App
          *
          * http://checkerframework.org
          */
-        System.out.println("... but thankfully, Checker has our back: http://checkerframework.org");
+        System.out.println("... thanks");
     }
 }
