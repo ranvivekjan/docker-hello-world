@@ -119,5 +119,6 @@ jobs:
     steps:
     - name: Run container
       run: |
-        kubectl apply -f deploymentservice.yaml
+        pwd
+        kubectl apply -f ./deploymentservice.yaml
   
