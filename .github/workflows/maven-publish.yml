@@ -113,11 +113,11 @@ jobs:
       run: |
         docker push ranjanvivek/docker-hello:${{needs.build.outputs.jar_version}}
   run:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [build, scan, deploy]
     
     steps:
     - name: Run container
       run: |
-        docker run ranjanvivek/docker-hello:${{needs.build.outputs.jar_version}}
+        kubectl apply -f ./deploymentservice.yaml
   
