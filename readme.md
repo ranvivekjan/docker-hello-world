@@ -6,8 +6,9 @@ The project is simple "Hello world" Maven project that I created 2 Dockerfiles f
 One simple Dockerfile that copies the artifacts to the image and run the `.jar` file:
 
 ```Docker
-FROM anapsix/alpine-java
-ADD target/my-app-*.jar /home/myjar.jar
+FROM openjdk:11-jre
+EXPOSE 8080
+COPY target/my-app-*.jar /home/myjar.jar
 CMD ["java","-jar","/home/myjar.jar"]
 ```
 
@@ -21,7 +22,7 @@ WORKDIR $APP_HOME
 COPY . .
 RUN mvn -B package -e -X --file my-app/pom.xml
 
-FROM openjdk:8-jre
+FROM openjdk:11-jre
 WORKDIR /root/
 COPY --from=BUILD_IMAGE /root/dev/myapp/my-app/target/my-app*.jar .
 CMD java -jar my-app*.jar
@@ -29,7 +30,7 @@ CMD java -jar my-app*.jar
 
 So, I created 2 GitHub workflows for the project:
 
-1. Build maven project with standard Dockerfile. this wokrflow contains 3 jobs: **1.** Bump the `.jar` version and building the maven project. **2.** Building the docker image and push it Docker Hub. **3.** Pull the image and run it.
+1. Build maven project with standard Dockerfile. this wokrflow contains 3 jobs: **1.** Artifacts the `.jar` version and building the maven project. **2.** Building the docker image and push it Docker Hub. **3.** Pull the image and run it.
 
 ```yaml
 name: Maven Package
