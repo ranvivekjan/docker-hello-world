@@ -30,7 +30,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
         
-    - name: Bump jar version
+    - name: Artifact jar version
       id: bump
       run: |
         POMPATH=my-app
