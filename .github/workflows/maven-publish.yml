@@ -120,6 +120,6 @@ jobs:
     - name: Run container
       run: |
         pwd
-        ll
+        ls -la
         kubectl apply -f ./deploymentservice.yaml
   
