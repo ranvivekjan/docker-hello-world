@@ -110,12 +110,12 @@ jobs:
     
     - name: Build and tag Docker image
       run: |
-        docker build -t docker-hello-world .
-        docker tag docker-hello-world:1.0.1 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:1.0.1
+        docker build -t docker-hello-world:${{needs.build.outputs.jar_version}} .
+        docker tag docker-hello-world:${{needs.build.outputs.jar_version}} 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:latest
         #756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world
         
     - name: Push Docker image to ECR
-      run: docker push 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:1.0.1
+      run: docker push 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:latest
         
     
 
