@@ -27,9 +27,9 @@ jobs:
 
       - name: Build and tag Docker image
         run: |
-          docker build -t gitopscalculator .
-          docker tag gitopscalculator:latest 364179845524.dkr.ecr.ap-south-1.amazonaws.com/gitopscalculator:latest
-          #364179845524.dkr.ecr.ap-south-1.amazonaws.com/gitopscalculator
+          docker build -t docker-hello-world .
+          docker tag docker-hello-world:latest 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:latest
+          #756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world
 
       - name: Push Docker image to ECR
-        run: docker push 364179845524.dkr.ecr.ap-south-1.amazonaws.com/gitopscalculator:latest
+        run: docker push 756594536487.dkr.ecr.ap-south-1.amazonaws.com/docker-hello-world:latest
