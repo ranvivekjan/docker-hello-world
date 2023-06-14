@@ -7,9 +7,11 @@ on:
       
   #workflow_dispatch:
   workflow_call:
-    secrets:
+    inputs:
         SONAR_HOST_URL:
           required: true
+          type: string
+    secrets:
         SONAR_TOKEN:
           required: true
     
