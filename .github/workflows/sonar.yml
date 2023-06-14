@@ -1,4 +1,4 @@
-name: Sonarqube
+name: Sonarqube-called
 
 on:
 #   push:
@@ -7,16 +7,12 @@ on:
       
   workflow_dispatch:
   workflow_call:
-    inputs:
-      host_url:
-        required: false
-        type: string
-        default: ""
-      token:
-        required: false
-        type: string
-        default: ""
-
+    secrets:
+        SONAR_HOST_URL:
+          required: true
+        SONAR_TOKEN:
+          required: true
+    
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -43,7 +39,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
     - name: Build and analyze
       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+         #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       run: |
