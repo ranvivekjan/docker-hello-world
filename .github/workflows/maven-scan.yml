@@ -62,7 +62,7 @@ jobs:
     needs: build
     
     steps:
-    - uses: ./.github/workflows/sonar.yml
+    - uses: ranvivekjan/docker-hello-world/.github/workflows/sonar.yml@master
       with:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
