@@ -58,14 +58,14 @@ jobs:
         retention-days: 1
         
   scan:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     needs: build
     
-    steps:
-    - uses: ranvivekjan/docker-hello-world/.github/workflows/sonar.yml@master
-      with:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    #steps:
+    uses: ranvivekjan/docker-hello-world/.github/workflows/sonar.yml@master
+    with:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
      
      
       
