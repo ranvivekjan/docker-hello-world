@@ -11,6 +11,9 @@ on:
         SONAR_HOST_URL:
           required: true
           type: string
+        SONAR_PROJECT_KEY:
+          required: false
+          type: string
     secrets:
         SONAR_TOKEN:
           required: true
@@ -44,8 +47,10 @@ jobs:
          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          SONAR_HOST_URL: ${{ inputs.SONAR_HOST_URL }}
+         SONAR_PROJECT_KEY: ${{ inputs.SONAR_PROJECT_KEY }}
       run: |
        echo "Secret Value: ${{ secrets.SONAR_TOKEN }}"
-       echo "Secret Value: ${{ inputs.SONAR_HOST_URL }}"
-       mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -f ./my-app -Dsonar.host.url=${{inputs.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}}
+       echo "HOST_URL: ${{ inputs.SONAR_HOST_URL }}"
+       echo "HOST_URL: ${{ inputs.SONAR_PROJECT_KEY }}"
+       mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -f ./my-app -Dsonar.host.url=${{inputs.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.projectKey=${{inputs.SONAR_PROJECT_KEY}}
 #      mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=${{inputs.host_url}} -Dsonar.token=${{inputs.token}}
