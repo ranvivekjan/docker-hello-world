@@ -61,7 +61,7 @@ jobs:
     uses: he329178/nodejs/.github/workflows/sonar.yml@master
     with:
       SONAR_HOST_URL : 'http://65.0.128.192:9000/'
-      SONAR_PROJECT_KEY: 'SonarQube-code-analysis-for-maven-github-action'
+      SONAR_PROJECT_KEY: 'my-app-docker-hello'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   
