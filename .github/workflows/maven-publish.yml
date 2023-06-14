@@ -89,6 +89,7 @@ jobs:
       run: |
         echo "Secret Token: ${{ secrets.SONAR_TOKEN }}"
         echo "Secret HostURL: ${{ secrets.SONAR_HOST_URL }}"
+        
         mvn -B verify -f ./my-app org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       #run: sonar-scanner -Dsonar.host.url=${{secrets.SONAR_HOST_URL}} -Dsonar.login=${{secrets.SONAR_TOKEN}}
     
