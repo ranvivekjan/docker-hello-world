@@ -58,10 +58,12 @@ jobs:
         retention-days: 1
         
   call-scan:
-    uses: ranvivekjan/docker-hello-world/.github/workflows/sonar.yml@master
+    uses: he329178/nodejs/.github/workflows/sonar.yml@master
     with:
+      SONAR_HOST_URL : 'http://65.0.128.192:9000/'
+    secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   
+      #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   
      
       
     
