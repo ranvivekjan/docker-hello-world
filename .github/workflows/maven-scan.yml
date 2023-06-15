@@ -67,7 +67,8 @@ jobs:
       SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}   
      
       
-    
+  Artifactory:
+    uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/jfrog.yml@main
     
 
   
