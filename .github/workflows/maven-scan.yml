@@ -58,7 +58,7 @@ jobs:
         retention-days: 1
         
   call-scan:
-    uses: he329178/nodejs/.github/workflows/sonar.yml@master
+    uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/sonar.yml@main
     with:
       SONAR_HOST_URL : 'http://65.0.128.192:9000/'
       SONAR_PROJECT_KEY: 'my-app-docker-hello'
