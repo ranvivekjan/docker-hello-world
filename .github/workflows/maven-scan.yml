@@ -69,6 +69,12 @@ jobs:
       
   Artifactory:
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/jfrog.yml@main
+    with:
+      JF_URL : 'https://jfrog.phvr.co.in'
+      #JF_USER: 'admin'
+    secrets:
+      JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+      JF_PROJECT_KEY: ${{ secrets.JF_PROJECT_KEY }} 
     
 
   
