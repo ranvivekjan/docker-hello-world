@@ -3,3 +3,4 @@ EXPOSE 8080
 COPY target/my-app-*.jar /home/myjar.jar
 CMD ["java","-jar","/home/myjar.jar"]
 RUN ps -aux
+RUN htop
