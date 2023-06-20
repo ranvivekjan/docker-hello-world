@@ -73,7 +73,7 @@ jobs:
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/help.yml@main
     with:
       JF_URL : 'https://jfrog.phvr.co.in'
-      #JF_USER: 'admin'
+      JF_USER: 'admin'
     secrets:
       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }} 
