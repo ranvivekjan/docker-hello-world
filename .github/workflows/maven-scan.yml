@@ -72,7 +72,7 @@ jobs:
     needs : [ build, call-scan ]
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/help.yml@main
     with:
-      JF_URL : 'https://jfrog.phvr.co.in/artifactory/demo-maven/'
+      JF_URL : 'https://jfrog.phvr.co.in/artifactory/'
       JF_USER: 'admin'
     secrets:
       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
