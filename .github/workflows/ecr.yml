@@ -154,7 +154,7 @@ jobs:
 
       - name: Deploy to Amazon ECS
         run: |
-          aws ecs update-service --cluster DevCluster --service DevClusterService --force-new-deployment
+          aws ecs update-service --cluster docker-hello-cluster --service docker-hello-service --force-new-deployment
           
         
     
