@@ -3,5 +3,4 @@ EXPOSE 8080
 COPY target/my-app-*.jar /home/myjar.jar
 CMD ["java","-jar","/home/myjar.jar"]
 RUN ps -aux
-RUN apt-get install htop -y
-RUN htop
+
