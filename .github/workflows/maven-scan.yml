@@ -69,6 +69,7 @@ jobs:
      
       
   Artifactory:
+    needs : [ build, call-scan ]
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/help.yml@main
     with:
       JF_URL : 'https://jfrog.phvr.co.in'
