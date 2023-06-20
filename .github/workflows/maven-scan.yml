@@ -57,7 +57,7 @@ jobs:
         path: ${{ github.workspace }}/my-app/target/*.jar
         retention-days: 1
         
-  call-scan:
+  sonar-scan:
     needs : build
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/sonar.yml@main
     #with:
