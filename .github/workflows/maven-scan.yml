@@ -74,7 +74,7 @@ jobs:
       #JF_USER: 'admin'
     secrets:
       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      JF_PROJECT_KEY: ${{ secrets.JF_PROJECT_KEY }} 
+      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }} 
     
 
   
