@@ -58,6 +58,7 @@ jobs:
         retention-days: 1
         
   call-scan:
+    needs : build
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/sonar.yml@main
     with:
       SONAR_HOST_URL : 'http://65.0.128.192:9000/'
