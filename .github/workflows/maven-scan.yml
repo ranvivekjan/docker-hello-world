@@ -68,9 +68,12 @@ jobs:
       SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}  
       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
      
-      
+  manual:
+    needs : [build, sonar-scan]
+    uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/manual-approval.yml@main
+  
   Artifactory:
-    needs : [ build, sonar-scan ]
+    needs : [ build, sonar-scan, manual ]
     uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/help.yml@main
     #with:
       #JF_URL : 'https://jfrog.phvr.co.in/artifactory/'
