@@ -70,7 +70,7 @@ jobs:
      
   manual:
     needs : [build, sonar-scan]
-    uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/manual-approval.yml@main
+    uses: ranvivekjan/sonar-qube-reusuable/.github/workflows/manual-approval3.yml@main
   
   Artifactory:
     needs : [ build, sonar-scan, manual ]
