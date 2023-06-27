@@ -31,7 +31,7 @@ jobs:
             
     - name: Docker build
       run: |
-        docker build . -t ranjanvivek/docker-hello:${{ steps.bump.outputs.jar_version }} -f DockerfileMultiStage
+        docker build . -t ranjanvivek/docker-hello-nocache:${{ steps.bump.outputs.jar_version }} -f DockerfileMultiStage
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
