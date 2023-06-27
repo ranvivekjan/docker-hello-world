@@ -1,4 +1,4 @@
-name: MavenDocker
+name: Maven Package - Multi stage docker
 
 on:
   [push]
