@@ -1,0 +1,16 @@
+name: Setup OPA
+on:
+  workflow_dispatch:
+  
+jobs:
+  setup-opa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup OPA
+        uses: openpolicyagent/setup-opa@v1
+        with:
+          version: '^0.44'
+      - name: Test policies
+        run: opa run ./policies/*.rego
